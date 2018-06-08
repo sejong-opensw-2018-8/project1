@@ -52,6 +52,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="board.jsp">게시판</a></li>
+				<li><a href="file.jsp">자료공유</a></li>
 			</ul>
 			
 			<%
@@ -117,6 +118,8 @@
 					<td>내용</td>
 					<td colspan="2" style="min-height: 200px; text-align: left;"><%= board.getBoardContent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&lt;") %></td>
 				  </tr>	
+				 
+
 				</tbody>
 			</table>
 			<a href="board.jsp" class="btn btn-primary">목록</a>

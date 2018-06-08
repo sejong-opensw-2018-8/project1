@@ -48,6 +48,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="board.jsp">게시판</a></li>
+				<li><a href="file.jsp">자료공유</a></li>
 			</ul>
 			
 			<%
@@ -133,6 +134,7 @@
 			%>
 			
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

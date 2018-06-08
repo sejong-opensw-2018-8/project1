@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
    
  <%@ page import="java.io.PrintWriter" %>  
-   
+ <%@ page import = "java.io.File" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,9 +36,9 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="main.jsp">메인</a></li>
+				<li ><a href="main.jsp">메인</a></li>
 				<li><a href="board.jsp">게시판</a></li>
-				<li><a href="file.jsp">자료공유</a></li>
+				<li class="active"><a href="file.jsp">자료공유</a></li>
 			</ul>
 			
 			<%
@@ -78,38 +78,22 @@
 			%>
 		</div>
 	</nav>
-	<div class="container">
-		<div class="jumbotron">
-			<div class="container">
-				<h1>오픈소스 프로젝트</h1>
-				<p> 오픈소스 시간에 배운 JSP와 MYSQL를 이용하고 디자인을 위해 부트스트랩을 사용한 웹 사이트입니다. </p>
-				<p><a href="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
-			</div>
-		</div>
-	</div>
 	
-	<div class="container">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<ol class=carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>			
-			</ol>
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="images/1.jpg">
-				</div>
-				<div class="item">
-					<img src="images/3.jpg">
-				</div>
-			</div>
-			<a class ="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class ="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		</div>
-	</div>
+	<%
+	String directory = application.getRealPath("/upload/");
+	String files[] = new File(directory).list();
+	
+	for(String file : files){
+		out.write("<a href=\"" + request.getContextPath() + "/downloadAction?file=" +
+		java.net.URLEncoder.encode(file,"UTF-8") + "\">" + file + "</a><br>");
+		
+	}
+
+	%>
+	<br><br><br><br>
+	<a href="file.jsp" class="btn btn-primary">뒤로</a>
+	
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 
